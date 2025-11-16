@@ -26,7 +26,8 @@ const excerpt = plainText
           alt={imageData.alt}
           width={imageData.width || 400}
           height={imageData.height || 200}
-          loading="lazy"
+          loading="eager"
+          priority
         />
       )}
       <ContentWrapper>

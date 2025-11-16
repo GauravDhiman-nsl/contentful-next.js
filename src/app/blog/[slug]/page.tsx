@@ -28,7 +28,7 @@ async function getBlogPost(slug: string) {
 export async function generateStaticParams() {
   const { items } = await contentfulClient.getEntries<BlogPostSkeleton>({
     content_type: "blogPost",
-    select: ["fields.slug"],
+    select: ["fields.slug", "fields.aboutAuthor"],
   });
 
   return items.map((item) => ({ slug: item.fields.slug }));

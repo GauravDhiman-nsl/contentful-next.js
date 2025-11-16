@@ -1,12 +1,12 @@
 'use client';
 
+import Header from "../layout/Header";
 import { HeadDescp, Heading, MainContainer } from "../styles";
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Heading >{"My Tech Blogs"}</Heading>
-      <HeadDescp>This blogs app using Contentful and Next.js.</HeadDescp>
+      <Header />
       <MainContainer>{children}</MainContainer>
     </>
   );

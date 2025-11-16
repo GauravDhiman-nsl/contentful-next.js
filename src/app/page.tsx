@@ -12,17 +12,12 @@ async function getAllBlogPosts() {
       content_type: 'blogPost',
       order: ['-sys.createdAt'],
       limit: POSTS_FETCH_LIMIT,
-      include: 1,
-      select: [
-        'fields.title',
-        'fields.slug',
-        'fields.image',
-        'fields.description',
-      ],
+      include: 2,
+      select: ['fields'], 
     });
+  
 
     if (!items || items.length === 0) {
-      console.warn('No blog posts found.');
       return [];
     }
     return items;

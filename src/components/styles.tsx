@@ -14,7 +14,7 @@ export const Heading = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 1rem;
+  margin-bottom: 5px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -80,9 +80,7 @@ export const CardWrapper = styled.div`
 export const Title = styled.h2`
   font-size: 1.5rem;
   margin: 0 0 0.5rem 0;
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
+  display:inline-block;
 `;
 
 export const SearchForm = styled.form`
@@ -115,6 +113,7 @@ export const HeaderContent = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: center;
+  flex-direction:column;
 `;
 
 export const Logo = styled.a`
@@ -227,7 +226,7 @@ export const ListWrapperBox = styled.div`
   flex-direction: column;
   width: 100%;
 `;
-export const BackButton = styled.button`
+export const BackButton = styled.a`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -253,4 +252,71 @@ font-weight:normal;
 export const Mark = styled.mark`
 background:#1a4f7b;
 color:#ffffff;
+`;
+
+export const AuthorSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+    border-top: 1px solid #dbdbdb;
+    padding: 20px;
+`;
+export const AuthorName = styled.h4<{}>`
+  display:flex;
+  font-size:1.5em;
+  font-weight:600;
+  color: #2b6cb0;
+`;
+
+export const JobTitle = styled.p<{}>`
+  display:flex;
+  font-size:1em;
+  font-weight:400;
+`;
+
+export const JobDescription = styled.div`
+  display:flex;
+  width:100%;
+  p{
+  font-size:1em;
+}
+  `;
+
+export const Created = styled.span`
+  display:flex;
+  width:100%;
+  font-size:1em;
+`;
+
+export const AllPostsButton = styled.a`
+display:inline-block;
+border:1px solid #2b6cb0;
+color:#2b6cb0;
+background:#ffffff;
+max-width:max-content;
+padding:12px;
+cursor: pointer;
+&:hover{
+color: #ffffff;
+background: #2b6cb0;
+border:1px solid #2b6cb0;
+
+}
+`;
+
+export const CreatedAt = styled.span`
+display:flex;
+width:100%;
+font-size:1em;
+`;
+export const AllAuthorPosts = styled.h1`
+font-size:2em;
+margin-bottom:10px;
+span
+{
+font-size:1em;
+color: #2b6cb0;
+font-weight:400;
+}
 `;

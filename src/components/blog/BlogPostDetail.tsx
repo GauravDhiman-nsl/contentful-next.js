@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BlogPostSkeleton } from "@/lib/types";
+import { AuthorSkeleton, BlogPostSkeleton } from "@/lib/types";
 import { Entry } from "contentful";
 import {
   ArticleWrapper,
@@ -11,15 +11,21 @@ import {
   Title,
 } from "../styles";
 import { getAssetData } from "@/lib/contentful";
+import AboutAuthor from "./AboutAuthor";
 
 interface BlogPostDetailProps {
   post: Entry<BlogPostSkeleton, undefined, string>;
 }
 
 export default function BlogPostDetail({ post }: BlogPostDetailProps) {
+  
   const router = useRouter();
   const { title, description, image } = post.fields;
+  const author = post.fields.aboutAuthor as Entry<AuthorSkeleton> | undefined;
   const imageData = getAssetData(image, title);
+  
+
+
   return (
     <ArticleWrapper>
       <Title>
@@ -47,12 +53,16 @@ export default function BlogPostDetail({ post }: BlogPostDetailProps) {
           alt={imageData.alt}
           width={imageData.width}
           height={imageData.height}
+          loading="eager"
           priority
         />
       )}
       <RichTextWrapper>
         {documentToReactComponents(description)}
       </RichTextWrapper>
+      
+     <AboutAuthor author={author} post={post} />
     </ArticleWrapper>
+    
   );
 }

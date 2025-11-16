@@ -1,14 +1,13 @@
 'use client';
 import Link from 'next/link';
-import { HeaderContent, HeaderWrapper, Logo } from '../styles';
+import { HeadDescp, HeaderContent, HeaderWrapper, Heading, Logo } from '../styles';
 
 export default function Header() {
   return (
     <HeaderWrapper>
       <HeaderContent>
-        <Link href="/blog" passHref legacyBehavior>
-          <Logo>Industrial Blog</Logo>
-        </Link>
+        <Heading >{"My Tech Blogs"}</Heading>
+      <HeadDescp>{"This blogs app using Contentful and Next.js."}</HeadDescp>
       </HeaderContent>
     </HeaderWrapper>
   );
