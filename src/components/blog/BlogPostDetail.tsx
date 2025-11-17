@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useCommonRouting } from "@/hooks/page";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { AuthorSkeleton, BlogPostSkeleton } from "@/lib/types";
 import { Entry } from "contentful";
@@ -19,7 +19,7 @@ interface BlogPostDetailProps {
 
 export default function BlogPostDetail({ post }: BlogPostDetailProps) {
   
-  const router = useRouter();
+  const {handleBack} = useCommonRouting();
   const { title, description, image } = post.fields;
   const author = post.fields.aboutAuthor as Entry<AuthorSkeleton> | undefined;
   const imageData = getAssetData(image, title);
@@ -29,7 +29,7 @@ export default function BlogPostDetail({ post }: BlogPostDetailProps) {
   return (
     <ArticleWrapper>
       <Title>
-        <BackButton onClick={() => router.back()}>
+        <BackButton onClick={handleBack}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

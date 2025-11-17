@@ -289,7 +289,7 @@ export const Created = styled.span`
   font-size:1em;
 `;
 
-export const AllPostsButton = styled.a`
+export const AllPostsButton = styled(Link)`
 display:inline-block;
 border:1px solid #2b6cb0;
 color:#2b6cb0;
